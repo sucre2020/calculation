@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Order Date and Discount Calculator</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Order Date and Discount Calculator</h1>
+
+      <% if (errors && errors.length > 0) { %>
+      <ul style="color: red">
+        <% errors.forEach(function(error) { %>
+        <li><%= error %></li>
+        <% }); %>
+      </ul>
+      <% } %>
+
+      <form action="/calculate" method="POST">
+        <label for="current_order_date">Current Order Date:</label>
+        <input type="date" name="current_order_date" id="current_order_date" />
+
+        <label for="days_to_hold">Days to Hold:</label>
+        <input type="number" name="days_to_hold" id="days_to_hold" />
+
+        <label for="order_amount">Order Amount:</label>
+        <input type="text" name="order_amount" id="order_amount" />
+
+        <label for="discount_amount">Discount Amount (%):</label>
+        <input type="text" name="discount_amount" id="discount_amount" />
+
+        <input type="submit" value="Calculate" />
+      </form>
+    </div>
+  </body>
+</html>

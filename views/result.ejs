@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Calculation Results</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Results</h2>
+      <div class="result-content">
+        <% if (start_date && next_order_date) { %>
+        <p>
+          Order held from <%= start_date %> to <%= next_order_date %> (<%=
+          days_to_hold %> days)
+        </p>
+        <% } %> <% if (order_amount && discount_amount) { %>
+        <p>Order Amount: $<%= order_amount %></p>
+        <p>Discount Amount: <%= discount_amount %>%</p>
+        <p>Total after Discount: $<%= total %></p>
+        <% } %>
+        <p><a href="/">Calculate Again</a></p>
+      </div>
+    </div>
+  </body>
+</html>
