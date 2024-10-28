@@ -26,6 +26,9 @@ app.use(
     store: MongoStore.create({
       mongoUrl: `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.yoczwia.mongodb.net/ordercal?retryWrites=true&w=majority`,
     }),
+    cookie: {
+      maxAge: 24 * 60 * 60 * 1000, // 1 day
+    },
   })
 );
 initializePassport(passport);

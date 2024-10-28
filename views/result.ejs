@@ -12,9 +12,10 @@
       <div class="result-content">
         <% if (start_date && next_order_date) { %>
         <p>
-          Order held from <%= start_date %> to <%= next_order_date %> (<%=
+          Order held from <%= start_date %> - <%= next_order_date %> (<%=
           days_to_hold %> days)
         </p>
+        <p>Offered Call Summary</p>
         <% } %> <% if (order_amount && discount_amount) { %>
         <p>Order Amount: $<%= order_amount %></p>
         <p>Discount Amount: <%= discount_amount %>%</p>
