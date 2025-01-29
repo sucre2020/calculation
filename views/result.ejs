@@ -11,18 +11,41 @@
       <h2>Results</h2>
       <div class="result-content">
         <% if (start_date && next_order_date) { %>
-        <p>
-          Order held from <%= start_date %> - <%= next_order_date %> (<%=
-          days_to_hold %> days)
-        </p>
-        <p>Offered Call Summary</p>
+        <div id="orderSummary">
+          <p>
+            Order held from <%= start_date %> - <%= next_order_date %> (<%=
+            days_to_hold %> days)
+          </p>
+          <p>Offered Call Summary</p>
+        </div>
+        <button class="copy-btn" onclick="copyText('orderSummary')">
+          Copy
+        </button>
         <% } %> <% if (order_amount && discount_amount) { %>
-        <p>Order Amount: $<%= order_amount %></p>
-        <p>Discount Amount: <%= discount_amount %>%</p>
-        <p>Total after Discount: $<%= total %></p>
+        <div id="discountSummary">
+          <p>Order Amount: $<%= order_amount %></p>
+          <p>Discount Amount: <%= discount_amount %>%</p>
+          <p>Total after Discount: $<%= total %></p>
+        </div>
+        <button class="copy-btn" onclick="copyText('discountSummary')">
+          Copy
+        </button>
         <% } %>
+
         <p><a href="/">Calculate Again</a></p>
       </div>
     </div>
+
+    <script>
+      function copyText(elementId) {
+        const element = document.getElementById(elementId);
+        const text = element.innerText;
+
+        navigator.clipboard
+          .writeText(text)
+          .then(() => alert("Copied:\n" + text))
+          .catch((err) => console.error("Failed to copy text: ", err));
+      }
+    </script>
   </body>
 </html>
